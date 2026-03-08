@@ -6,5 +6,5 @@ export default defineConfig({
   dts: true,
   entry: [join('src', 'index.ts')],
   format: 'esm',
-  tsconfig: 'tsconfig.lib.json',
+  tsconfig: 'tsconfig.json',
 })
