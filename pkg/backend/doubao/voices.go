@@ -39,6 +39,7 @@ func HandleVoices(c echo.Context, options mo.Option[types.VoicesRequestOptions])
 	voices := make([]types.Voice, 0, len(voicesResponse))
 
 	for _, voice := range voicesResponse {
+		//nolint:mnd
 		voices = append(voices, types.Voice{
 			ID:          voice.Voice,
 			Name:        voice.Name,
