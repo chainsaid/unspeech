@@ -1,5 +1,7 @@
 builds:
   - main: ./cmd/unspeech
+    ldflags:
+      - -X main.version={{.Version}}
     # remove 386
     goarch:
       - amd64

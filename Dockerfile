@@ -11,7 +11,9 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} go build -o ./result/unspeech ./cmd/unspeech
+ARG VERSION=0.0.0
+
+RUN CGO_ENABLED=0 GOOS=${TARGETOS:-linux} GOARCH=${TARGETARCH} go build -ldflags="-X main.version=${VERSION}" -o ./result/unspeech ./cmd/unspeech
 
 # https://github.com/GoogleContainerTools/distroless
 FROM gcr.io/distroless/static-debian12 AS app

@@ -14,11 +14,12 @@ import (
 	"github.com/moeru-ai/unspeech/pkg/ho"
 )
 
+var version = "0.0.0"
+
 func main() {
 	rootCmd := &cobra.Command{
-		Use: "unspeech",
-		// TODO: set version
-		Version: "0.0.0",
+		Use:     "unspeech",
+		Version: version,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			slog.SetDefault(slog.New(tint.NewHandler(os.Stdout, nil)))
 
